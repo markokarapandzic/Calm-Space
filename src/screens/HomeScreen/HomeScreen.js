@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Text } from 'react-native-elements';
 import Styles from './HomeScreenStyle';
 
+import * as Constants from '../../../constants';
 import ActivityComponent from '../../components/ActivityComponent/ActivityComponent';
 import NavBar from '../../components/NavBar/NavBar';
 
@@ -19,12 +20,8 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.container}>
           <NavBar navigation={navigation} />
           <View style={styles.bottomContent}>
-            <Text style={styles.quote}>
-              I love you!&quot; he shouted, his eyes glowing laser green.&quotI love you, okay?
-              I&apos;m I&apos;m I&apos;m I&apos;m hopeless retard you pull along behind you because
-              you feel and I&apos;m going to prove it!
-            </Text>
-            <Text style={styles.author}>- Amit Kalatari</Text>
+            <Text style={styles.quote}>{Constants.QUOTE}</Text>
+            <Text style={styles.author}>{Constants.AUTHOR}</Text>
             <View style={styles.activities}>
               <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 <ActivityComponent />

@@ -1,7 +1,9 @@
 /* eslint-disable indent */
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, ImageBackground } from 'react-native';
+import PropTypes from 'prop-types';
 import { Icon, Text } from 'react-native-elements';
+
 import * as Constants from '../../../constants';
 
 import Styles from './ThemeComponentStyle';
@@ -87,6 +89,15 @@ const ThemeComponent = ({ navigation, theme }) => {
       </View>
     </ImageBackground>
   );
+};
+
+ThemeComponent.propTypes = {
+  navigation: PropTypes.object,
+  theme: PropTypes.oneOf([
+    Constants.ThemesEnum.FOREST,
+    Constants.ThemesEnum.DESERT,
+    Constants.ThemesEnum.SPACE,
+  ]),
 };
 
 export default ThemeComponent;

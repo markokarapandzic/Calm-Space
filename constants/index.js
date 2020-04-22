@@ -68,6 +68,12 @@ export const USERNAME_PLACEHOLDER = 'Username';
 export const REPEAT_PASSWORD_LABEL = 'Repeat Password';
 export const SIGN_IN = 'Sign In';
 
+// Home
+export const QUOTE =
+  // eslint-disable-next-line max-len
+  'I love you!&quot; he shouted, his eyes glowing laser green.&quotI love you, okay? I&apos;m I&apos;m I&apos;m I&apos;m hopeless retard you pull along behind you because you feel and I&apos;m going to prove it!';
+export const AUTHOR = '- Amit Kalatari';
+
 // General Text
 export const TITLE = 'Calm Space';
 export const THEME_FREE = 'FREE';

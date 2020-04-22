@@ -1,3 +1,5 @@
+import * as Constants from '../../../constants';
+
 export default {
   activity: {
     flex: 1,
@@ -19,4 +21,7 @@ export default {
     borderBottomColor: 'black',
     borderBottomWidth: 1,
   },
-}
+  textWhite: {
+    color: Constants.THEME.colors.white,
+  },
+};
