@@ -1,0 +1,8 @@
+export const SEND_MESSAGE = 'SEND_MESSAGE';
+export const GET_MESSAGES = 'GET_MESSAGES';
+export const GET_MESSAGES_ERROR = 'GET_MESSAGES_ERROR';
+export const START_LOADING = 'START_LOADING';
+export const STOP_LOADING = 'STOP_LOADING';
+
+// Saga
+export const SEND_MESSAGE_REQUEST = 'SEND_MESSAGE_REQUEST';
