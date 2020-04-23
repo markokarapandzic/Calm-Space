@@ -18,16 +18,28 @@ const styles = StyleSheet.create({
 
 const ThemesScreen = ({ navigation }) => {
   return (
-    <View style={styles.backgroundContainer}>
-      <ViewPager style={styles.viewPager} page={0}>
+    <View style={styles.backgroundContainer} data-test="screen-themes">
+      <ViewPager style={styles.viewPager} page={0} data-test="viewpager-themes">
         <View key="1">
-          <ThemeComponent navigation={navigation} theme={Constants.ThemesEnum.FOREST} />
+          <ThemeComponent
+            navigation={navigation}
+            theme={Constants.ThemesEnum.FOREST}
+            data-test="component-theme-1"
+          />
         </View>
         <View key="2">
-          <ThemeComponent navigation={navigation} theme={Constants.ThemesEnum.DESERT} />
+          <ThemeComponent
+            navigation={navigation}
+            theme={Constants.ThemesEnum.DESERT}
+            data-test="component-theme-2"
+          />
         </View>
         <View key="3">
-          <ThemeComponent navigation={navigation} theme={Constants.ThemesEnum.SPACE} />
+          <ThemeComponent
+            navigation={navigation}
+            theme={Constants.ThemesEnum.SPACE}
+            data-test="component-theme-3"
+          />
         </View>
       </ViewPager>
     </View>

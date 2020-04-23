@@ -24,7 +24,7 @@ export default function App() {
     <Provider store={store}>
       <View style={styles.container}>
         <Spinner visible={loading} textContent="Loading..." textStyle={styles.spinner} />
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+        {Platform.OS === Constants.PLATFORM.IOS && <StatusBar barStyle="default" />}
         <AppNavigation
           ref={navigationRef => {
             // eslint-disable-next-line import/no-named-as-default-member

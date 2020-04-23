@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import ExpoConstants from 'expo-constants';
 import * as Constants from '../../../constants';
 
@@ -25,7 +26,7 @@ export default {
     justifyContent: 'center',
   },
   quote: {
-    color: Platform.OS === 'android' ? Constants.THEME.colors.lightgray : 'white',
+    color: Platform.OS === Constants.PLATFORM.ANDROID ? Constants.THEME.colors.lightgray : 'white',
     fontStyle: 'italic',
     fontWeight: '200',
     paddingHorizontal: 10,

@@ -21,28 +21,42 @@ const SignUpScreen = ({ navigation }) => {
     <KeyboardAvoidingView
       behavior={Platform === Constants.PLATFORM.IOS ? 'padding' : 'height'}
       style={styles.container}
+      data-test="screen-signin"
     >
-      <View style={styles.socialButtons}>
+      <View style={styles.socialButtons} data-test="view-social-buttons">
         <TouchableOpacity
           activeOpacity={Constants.DEFAULT_OPACITY_TOUCHABLE}
           onPress={() => console.log('[SignIn Screen] Facebook Login Button onPress')}
+          data-test="button-facebook"
         >
-          <SocialIcon type="facebook" button title={Constants.FACEBOOK_REGISTER} />
+          <SocialIcon
+            type="facebook"
+            button
+            title={Constants.FACEBOOK_REGISTER}
+            data-test="button-facebook-content"
+          />
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={Constants.DEFAULT_OPACITY_TOUCHABLE}
           onPress={() => console.log('[SignIn Screen] Google Login Button onPress')}
+          data-test="button-google"
         >
-          <SocialIcon type="google" button title={Constants.GOOGLE_REGISTER} />
+          <SocialIcon
+            type="google"
+            button
+            title={Constants.GOOGLE_REGISTER}
+            data-test="button-google-content"
+          />
         </TouchableOpacity>
       </View>
-      <View style={styles.input}>
+      <View style={styles.input} data-test="view-register">
         <Input
           label={Constants.USERNAME_LABEL}
           placeholder={Constants.USERNAME_PLACEHOLDER}
           leftIcon={<Icon type={Constants.ICON_TYPE.FONT_AWESOME} name="user" color="#a9a9a9" />}
           containerStyle={{ marginBottom: 20 }}
           leftIconContainerStyle={{ paddingRight: 10 }}
+          data-test="input-username"
         />
         <Input
           label={Constants.EMAIL_LABEL}
@@ -50,6 +64,7 @@ const SignUpScreen = ({ navigation }) => {
           leftIcon={<Icon type="zocial" name="email" color="#a9a9a9" />}
           containerStyle={{ marginBottom: 20 }}
           leftIconContainerStyle={{ paddingRight: 10 }}
+          data-test="input-email"
         />
         <Input
           label={Constants.PASSWORD_LABEL}
@@ -57,6 +72,7 @@ const SignUpScreen = ({ navigation }) => {
           leftIcon={<Icon type={Constants.ICON_TYPE.IONICON} name="ios-lock" color="#a9a9a9" />}
           containerStyle={{ marginBottom: 20 }}
           leftIconContainerStyle={{ paddingRight: 10 }}
+          data-test="input-password"
         />
         <Input
           label={Constants.REPEAT_PASSWORD_LABEL}
@@ -64,6 +80,7 @@ const SignUpScreen = ({ navigation }) => {
           leftIcon={<Icon type={Constants.ICON_TYPE.IONICON} name="ios-lock" color="#a9a9a9" />}
           containerStyle={{ marginBottom: 20 }}
           leftIconContainerStyle={{ paddingRight: 10 }}
+          data-test="input-password-repeat"
         />
         <Button
           title="Register"
@@ -75,12 +92,16 @@ const SignUpScreen = ({ navigation }) => {
           onPress={() => navigation.navigate(Constants.SCREEN.HOME)}
           buttonStyle={{ height: 60, marginVertical: 10 }}
           titleStyle={{ fontSize: Constants.AUTH_BUTTON_TEXT_SIZE }}
+          data-test="button-register"
         />
         <TouchableOpacity
           style={{ alignItems: 'center' }}
           onPress={() => console.log('[SignIn Screen] Forgot Password onPress')}
+          data-test="button-forgot-password"
         >
-          <Text style={styles.forgotPassword}>{Constants.FORGOT_PASSWORD}</Text>
+          <Text style={styles.forgotPassword} data-test="button-forgot-password-content">
+            {Constants.FORGOT_PASSWORD}
+          </Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
