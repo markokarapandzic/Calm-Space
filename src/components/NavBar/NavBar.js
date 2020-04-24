@@ -22,11 +22,16 @@ const styles = StyleSheet.create({
 
 const NavBarComponent = ({ navigation }) => {
   return (
-    <View style={styles.navBar}>
-      <View />
-      <Text style={styles.title}>{Constants.TITLE}</Text>
-      <TouchableOpacity onPress={() => navigation.navigate(Constants.SCREEN.THEMES)}>
-        <Icon name="ios-leaf" type="ionicon" size={30} />
+    <View style={styles.navBar} data-test="component-navbar">
+      <View data-test="view-left" />
+      <Text style={styles.title} data-test="text-title">
+        {Constants.TITLE}
+      </Text>
+      <TouchableOpacity
+        onPress={() => navigation.navigate(Constants.SCREEN.THEMES)}
+        data-test="button-themes"
+      >
+        <Icon name="ios-leaf" type="ionicon" size={30} data-test="button-themes-content" />
       </TouchableOpacity>
     </View>
   );

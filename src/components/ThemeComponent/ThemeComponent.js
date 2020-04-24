@@ -68,24 +68,52 @@ const ThemeComponent = ({ navigation, theme }) => {
   }
 
   return (
-    <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
-      <View style={styles.container}>
-        <View style={styles.navBar}>
-          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-            <Icon name="chevron-left" type="evilicon" size={60} />
+    <ImageBackground
+      source={backgroundImage}
+      style={styles.backgroundImage}
+      data-test="component-theme"
+    >
+      <View style={styles.container} data-test="view-container">
+        <View style={styles.navBar} data-test="view-navbar">
+          <TouchableOpacity
+            onPress={() => navigation.navigate(Constants.SCREEN.HOME)}
+            data-test="button-navbar-back"
+          >
+            <Icon
+              name="chevron-left"
+              type="evilicon"
+              size={60}
+              data-test="button-navbar-back-content"
+            />
           </TouchableOpacity>
         </View>
-        <View style={styles.bottomContent}>
-          <View style={styles.themeDescription}>
-            <Text style={styles.themeName}>{themeTitle}</Text>
-            <Text style={styles.themeText}>{themeDescription}</Text>
+        <View style={styles.bottomContent} data-test="view-bottom-content">
+          <View style={styles.themeDescription} data-test="view-theme-info">
+            <Text style={styles.themeName} data-test="text-title">
+              {themeTitle}
+            </Text>
+            <Text style={styles.themeText} data-test="text-description">
+              {themeDescription}
+            </Text>
           </View>
           {buyButton}
         </View>
       </View>
-      <View style={styles.swipeIcon}>
-        <Icon name="arrows-h" type="font-awesome" color="white" size={30} />
-        <Icon name="hand" type="entypo" color="white" size={40} />
+      <View style={styles.swipeIcon} data-test="view-swipe-icon">
+        <Icon
+          name="arrows-h"
+          type={Constants.ICON_TYPE.FONT_AWESOME}
+          color="white"
+          size={30}
+          data-test="icon-arrows"
+        />
+        <Icon
+          name="hand"
+          type={Constants.ICON_TYPE.ENTYPO}
+          color="white"
+          size={40}
+          data-test="icon-hand"
+        />
       </View>
     </ImageBackground>
   );
