@@ -72,7 +72,7 @@
   "jest": {
     "preset": "jest-expo",
     "setupFilesAfterEnv": [
-      "/Users/markok/Desktop/Projects/calm-space/src/utils/setupTests.js"
+      "./src/utils/setupTests.js"
     ]
   }
 }
