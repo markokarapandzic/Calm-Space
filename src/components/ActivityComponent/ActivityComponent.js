@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable no-shadow */
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
@@ -6,17 +7,36 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { BlurView } from 'expo-blur';
 
-import { startFocusActivity } from '../../store/actions/ActionCreator';
+import { startFocusActivity, startSleepActivity } from '../../store/actions/ActionCreator';
 import * as Constants from '../../../constants';
 import Styles from './ActivityComponentStyle';
 
 const styles = StyleSheet.create(Styles);
 
-const ActivityComponent = ({ startFocusActivity }) => {
+const ActivityComponent = ({ activity, startFocusActivity, startSleepActivity }) => {
+  let startActivity = null;
+  let title = 'Activity';
+  let description = 'Increase Rest';
+
+  switch (activity) {
+    case Constants.ACTIVITY_ENUM.FOCUS:
+      startActivity = startFocusActivity;
+      title = 'Focus';
+      description = 'Increase Productivity';
+      break;
+    case Constants.ACTIVITY_ENUM.SLEEP:
+      startActivity = startSleepActivity;
+      title = 'Sleep';
+      description = 'Increase Rest';
+      break;
+    default:
+      break;
+  }
+
   return (
     <TouchableOpacity
       activeOpacity={0.5}
-      onPress={() => startFocusActivity()}
+      onPress={() => startActivity()}
       data-test="component-activity"
     >
       <BlurView tint="dark" intensity={60} style={styles.activity} data-test="blur-view-background">
@@ -29,10 +49,10 @@ const ActivityComponent = ({ startFocusActivity }) => {
         />
         <View style={styles.activityText} data-test="view-activity-text">
           <Text h1 style={styles.textWhite} data-test="text-title">
-            Focus
+            {title}
           </Text>
           <Text style={styles.textWhite} data-test="text-description">
-            Increase Productivity
+            {description}
           </Text>
         </View>
       </BlurView>
@@ -42,6 +62,8 @@ const ActivityComponent = ({ startFocusActivity }) => {
 
 ActivityComponent.propTypes = {
   startFocusActivity: PropTypes.func.isRequired,
+  startSleepActivity: PropTypes.func.isRequired,
+  activity: PropTypes.oneOf([Constants.ACTIVITY_ENUM.FOCUS, Constants.ACTIVITY_ENUM.SLEEP]),
 };
 
-export default connect(null, { startFocusActivity })(ActivityComponent);
+export default connect(null, { startFocusActivity, startSleepActivity })(ActivityComponent);

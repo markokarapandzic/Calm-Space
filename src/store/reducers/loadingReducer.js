@@ -7,11 +7,14 @@ import {
   STOP_LOADING,
   START_FOCUS_ACTIVITY,
   STOP_FOCUS_ACTIVITY,
+  START_SLEEP_ACTIVITY,
+  STOP_SLEEP_ACTIVITY,
 } from '../actions/ActionTypes';
 
 const initialState = {
   loading: false,
   focusActivityModal: false,
+  sleepActivityModal: false,
 };
 
 export default (state = initialState, action) =>
@@ -28,6 +31,12 @@ export default (state = initialState, action) =>
         break;
       case STOP_FOCUS_ACTIVITY:
         draft.focusActivityModal = false;
+        break;
+      case START_SLEEP_ACTIVITY:
+        draft.sleepActivityModal = true;
+        break;
+      case STOP_SLEEP_ACTIVITY:
+        draft.sleepActivityModal = false;
         break;
       default:
         break;

@@ -1,21 +1,22 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-undef */
 import React from 'react';
 import { shallow } from 'enzyme';
 
 import { findByTestAttr, storeFactory } from '../../src/utils/testUtils';
-
 import ActivityComponent from '../../src/components/ActivityComponent/ActivityComponent';
 
 const defaultState = {
   loadingReducer: {
     startFocusActivity: jest.fn(),
+    startSleepActivity: jest.fn(),
   },
 };
 
-const setup = () => {
+const setup = (props = {}) => {
   // eslint-disable-next-line react/jsx-props-no-spreading
   const store = storeFactory(defaultState);
-  const wrapper = shallow(<ActivityComponent store={store} />).dive();
+  const wrapper = shallow(<ActivityComponent store={store} {...props} />).dive();
 
   return wrapper;
 };

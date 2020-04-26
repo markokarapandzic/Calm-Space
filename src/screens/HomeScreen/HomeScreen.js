@@ -8,17 +8,19 @@ import Styles from './HomeScreenStyle';
 import * as Constants from '../../../constants';
 import ActivityComponent from '../../components/ActivityComponent/ActivityComponent';
 import NavBar from '../../components/NavBar/NavBar';
-import FocusActivity from '../../components/Activities/FocusAcitvity/FocusAcitvity'
+import SleepActivity from '../../components/Activities/SleepActivity/SleepActivity';
+import FocusActivity from '../../components/Activities/FocusAcitvity/FocusAcitvity';
 
 const styles = StyleSheet.create(Styles);
 
 const mapStateToProps = state => {
   return {
     isFocusActivity: state.loadingReducer.focusActivityModal,
+    isSleepActivity: state.loadingReducer.sleepActivityModal,
   };
 };
 
-const HomeScreen = ({ navigation, isFocusActivity }) => {
+const HomeScreen = ({ navigation, isFocusActivity, isSleepActivity }) => {
   return (
     <View style={styles.backgroundContainer} data-test="screen-home">
       <ImageBackground
@@ -41,14 +43,21 @@ const HomeScreen = ({ navigation, isFocusActivity }) => {
                 showsHorizontalScrollIndicator={false}
                 data-test="scroll-view-activities"
               >
-                <ActivityComponent data-test="component-activity-1" />
-                <ActivityComponent data-test="component-activity-2" />
+                <ActivityComponent
+                  activity={Constants.ACTIVITY_ENUM.FOCUS}
+                  data-test="component-activity-1"
+                />
+                <ActivityComponent
+                  activity={Constants.ACTIVITY_ENUM.SLEEP}
+                  data-test="component-activity-2"
+                />
                 <ActivityComponent data-test="component-activity-3" />
               </ScrollView>
             </View>
           </View>
         </View>
       </ImageBackground>
+      {/* Focus Activity */}
       <Modal
         animationType="fade"
         // eslint-disable-next-line react/jsx-boolean-value
@@ -61,6 +70,19 @@ const HomeScreen = ({ navigation, isFocusActivity }) => {
       >
         <FocusActivity />
       </Modal>
+      {/* Sleep Activity */}
+      <Modal
+        animationType="fade"
+        // eslint-disable-next-line react/jsx-boolean-value
+        visible={isSleepActivity}
+        transparent
+        presentationStyle="overFullScreen"
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+        }}
+      >
+        <SleepActivity />
+      </Modal>
     </View>
   );
 };
@@ -68,6 +90,7 @@ const HomeScreen = ({ navigation, isFocusActivity }) => {
 HomeScreen.propTypes = {
   navigation: PropTypes.object,
   isFocusActivity: PropTypes.bool,
+  isSleepActivity: PropTypes.bool,
 };
 
 export default connect(mapStateToProps)(HomeScreen);

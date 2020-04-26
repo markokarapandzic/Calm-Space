@@ -26,6 +26,11 @@ export const SCREEN = {
   FORGOT_PASSWORD: 'ForgotPassword',
 };
 
+export const ACTIVITY_ENUM = {
+  FOCUS: 1,
+  SLEEP: 2,
+};
+
 // Icon Types
 export const ICON_TYPE = {
   MATERIAL: 'material',
