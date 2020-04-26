@@ -87,18 +87,6 @@ describe('SignIn Screen', () => {
         const btnRegister = findByTestAttr(wrapper, 'button-register');
         expect(btnRegister.length).toBe(1);
       });
-
-      test('should render Forger Password Button', () => {
-        const wrapper = setup();
-        const btnForgotPass = findByTestAttr(wrapper, 'button-forgot-password');
-        expect(btnForgotPass.length).toBe(1);
-      });
-
-      test('should render Forger Password Button Content', () => {
-        const wrapper = setup();
-        const btnForgotPassCnt = findByTestAttr(wrapper, 'button-forgot-password-content');
-        expect(btnForgotPassCnt.length).toBe(1);
-      });
     });
   });
 });
