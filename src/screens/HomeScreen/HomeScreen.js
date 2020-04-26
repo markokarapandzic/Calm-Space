@@ -1,16 +1,24 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground, ScrollView } from 'react-native';
+import { StyleSheet, View, ImageBackground, ScrollView, Modal, Alert } from 'react-native';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Text } from 'react-native-elements';
-import Styles from './HomeScreenStyle';
 
+import Styles from './HomeScreenStyle';
 import * as Constants from '../../../constants';
 import ActivityComponent from '../../components/ActivityComponent/ActivityComponent';
 import NavBar from '../../components/NavBar/NavBar';
+import FocusActivity from '../../components/Activities/FocusAcitvity/FocusAcitvity'
 
 const styles = StyleSheet.create(Styles);
 
-const HomeScreen = ({ navigation }) => {
+const mapStateToProps = state => {
+  return {
+    isFocusActivity: state.loadingReducer.focusActivityModal,
+  };
+};
+
+const HomeScreen = ({ navigation, isFocusActivity }) => {
   return (
     <View style={styles.backgroundContainer} data-test="screen-home">
       <ImageBackground
@@ -41,12 +49,25 @@ const HomeScreen = ({ navigation }) => {
           </View>
         </View>
       </ImageBackground>
+      <Modal
+        animationType="fade"
+        // eslint-disable-next-line react/jsx-boolean-value
+        visible={isFocusActivity}
+        transparent
+        presentationStyle="overFullScreen"
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+        }}
+      >
+        <FocusActivity />
+      </Modal>
     </View>
   );
 };
 
 HomeScreen.propTypes = {
-  navigation: PropTypes.object,
+  navigation: PropTypes.object.isRequired,
+  isFocusActivity: PropTypes.bool.isRequired,
 };
 
-export default HomeScreen;
+export default connect(mapStateToProps)(HomeScreen);

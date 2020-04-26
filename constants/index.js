@@ -50,6 +50,7 @@ export const BASE_PADDING = 20;
 export const DEFAULT_OPACITY_TOUCHABLE = 0.5;
 export const FORGOT_PASSWORD = 'Forgot your password?';
 export const GRADIENT_TOP_STARTING_POSITION = [0, 0];
+export const MENU_ICON_SIZE = 30;
 
 // SignUp
 export const FACEBOOK_LOGIN = 'Login with Facebook';
@@ -72,7 +73,7 @@ export const SIGN_IN = 'Sign In';
 // Home
 export const QUOTE =
   // eslint-disable-next-line max-len
-  'I love you!&quot; he shouted, his eyes glowing laser green.&quotI love you, okay? I&apos;m I&apos;m I&apos;m I&apos;m hopeless retard you pull along behind you because you feel and I&apos;m going to prove it!';
+  'Write the kind of story you would like to read. People will give you all sorts of advice about writing, but if you are not writing something you like, no one else will like it either.';
 export const AUTHOR = '- Amit Kalatari';
 
 // General Text

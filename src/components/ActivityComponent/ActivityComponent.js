@@ -1,18 +1,22 @@
+/* eslint-disable no-shadow */
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { Icon, Text } from 'react-native-elements';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { BlurView } from 'expo-blur';
 
+import { startFocusActivity } from '../../store/actions/ActionCreator';
 import * as Constants from '../../../constants';
 import Styles from './ActivityComponentStyle';
 
 const styles = StyleSheet.create(Styles);
 
-const ActivityComponent = () => {
+const ActivityComponent = ({ startFocusActivity }) => {
   return (
     <TouchableOpacity
       activeOpacity={0.5}
-      onPress={() => console.log('Activity onPress')}
+      onPress={() => startFocusActivity()}
       data-test="component-activity"
     >
       <BlurView tint="dark" intensity={60} style={styles.activity} data-test="blur-view-background">
@@ -36,4 +40,8 @@ const ActivityComponent = () => {
   );
 };
 
-export default ActivityComponent;
+ActivityComponent.propTypes = {
+  startFocusActivity: PropTypes.func.isRequired,
+};
+
+export default connect(null, { startFocusActivity })(ActivityComponent);

@@ -1,5 +1,5 @@
-import * as Constants from '../../../constants';
 import ExpoConstants from 'expo-constants';
+import * as Constants from '../../../constants';
 
 export default {
   container: {
@@ -25,12 +25,12 @@ export default {
   themeName: {
     color: 'white',
     fontSize: 80,
-    fontWeight: '100'
+    fontWeight: '100',
   },
   themeText: {
     color: 'white',
     fontSize: 25,
-    fontWeight: '200'
+    fontWeight: '200',
   },
   buyThemeBtn: {
     height: 100,

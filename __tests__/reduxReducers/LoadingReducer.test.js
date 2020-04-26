@@ -7,6 +7,7 @@ describe('Redux - Loading Reducer', () => {
   beforeEach(() => {
     fakeDefaultState = {
       loading: false,
+      focusActivityModal: false,
     };
   });
 

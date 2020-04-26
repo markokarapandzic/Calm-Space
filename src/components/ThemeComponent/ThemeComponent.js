@@ -81,7 +81,7 @@ const ThemeComponent = ({ navigation, theme }) => {
           >
             <Icon
               name="chevron-left"
-              type="evilicon"
+              type={Constants.ICON_TYPE.EVILICON}
               size={60}
               data-test="button-navbar-back-content"
             />
