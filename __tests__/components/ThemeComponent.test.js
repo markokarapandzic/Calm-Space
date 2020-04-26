@@ -67,22 +67,22 @@ describe('Theme Component', () => {
       expect(txtDesc.length).toBe(1);
     });
 
-    test('should render Swipe Icon View', () => {
-      const wrapper = setup();
-      const viewSwipeIcn = findByTestAttr(wrapper, 'view-swipe-icon');
-      expect(viewSwipeIcn.length).toBe(1);
-    });
+    // test('should render Swipe Icon View', () => {
+    //   const wrapper = setup();
+    //   const viewSwipeIcn = findByTestAttr(wrapper, 'view-swipe-icon');
+    //   expect(viewSwipeIcn.length).toBe(1);
+    // });
 
-    test('should render Swipe Arrows Icon', () => {
-      const wrapper = setup();
-      const icnArrow = findByTestAttr(wrapper, 'icon-arrows');
-      expect(icnArrow.length).toBe(1);
-    });
+    // test('should render Swipe Arrows Icon', () => {
+    //   const wrapper = setup();
+    //   const icnArrow = findByTestAttr(wrapper, 'icon-arrows');
+    //   expect(icnArrow.length).toBe(1);
+    // });
 
-    test('should render Swipe Hand Icon', () => {
-      const wrapper = setup();
-      const icnHand = findByTestAttr(wrapper, 'icon-hand');
-      expect(icnHand.length).toBe(1);
-    });
+    // test('should render Swipe Hand Icon', () => {
+    //   const wrapper = setup();
+    //   const icnHand = findByTestAttr(wrapper, 'icon-hand');
+    //   expect(icnHand.length).toBe(1);
+    // });
   });
 });
