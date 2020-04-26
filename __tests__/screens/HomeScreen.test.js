@@ -2,12 +2,23 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { findByTestAttr } from '../../src/utils/testUtils';
+import { findByTestAttr, storeFactory } from '../../src/utils/testUtils';
 
 import HomeScreen from '../../src/screens/HomeScreen/HomeScreen';
 
+const defaultState = {
+  loadingReducer: {
+    isFocusActivity: false,
+  },
+};
+
 const setup = () => {
-  const wrapper = shallow(<HomeScreen />);
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  const store = storeFactory(defaultState);
+  const wrapper = shallow(<HomeScreen store={store} />)
+    .dive()
+    .dive();
+
   return wrapper;
 };
 

@@ -1,11 +1,9 @@
 /* eslint-disable no-undef */
 import React from 'react';
-import { TouchableOpacityProps } from 'react-native';
 import { shallow } from 'enzyme';
 
 import { findByTestAttr, checkProps, storeFactory } from '../../../src/utils/testUtils';
 import FocusAcitvity from '../../../src/components/Activities/FocusAcitvity/FocusAcitvity';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const defaultState = {
   loadingReducer: {

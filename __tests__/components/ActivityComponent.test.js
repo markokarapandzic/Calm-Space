@@ -2,12 +2,21 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { findByTestAttr } from '../../src/utils/testUtils';
+import { findByTestAttr, storeFactory } from '../../src/utils/testUtils';
 
 import ActivityComponent from '../../src/components/ActivityComponent/ActivityComponent';
 
+const defaultState = {
+  loadingReducer: {
+    startFocusActivity: jest.fn(),
+  },
+};
+
 const setup = () => {
-  const wrapper = shallow(<ActivityComponent />);
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  const store = storeFactory(defaultState);
+  const wrapper = shallow(<ActivityComponent store={store} />).dive();
+
   return wrapper;
 };
 

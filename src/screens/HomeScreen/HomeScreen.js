@@ -66,8 +66,8 @@ const HomeScreen = ({ navigation, isFocusActivity }) => {
 };
 
 HomeScreen.propTypes = {
-  navigation: PropTypes.object.isRequired,
-  isFocusActivity: PropTypes.bool.isRequired,
+  navigation: PropTypes.object,
+  isFocusActivity: PropTypes.bool,
 };
 
 export default connect(mapStateToProps)(HomeScreen);
