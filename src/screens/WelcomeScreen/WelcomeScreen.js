@@ -67,7 +67,7 @@ const WelcomeScreen = ({ navigation }) => {
           <Text style={styles.signUpBtnText}>{Constants.SIGN_IN}</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => console.log('[WelcomeScreen] Forgot Password Button onPress')}
+          onPress={() => navigation.navigate(Constants.SCREEN.FORGOT_PASSWORD)}
           data-test="button-forgot-password"
         >
           <Text style={styles.forgotPassword}>{Constants.FORGOT_PASSWORD}</Text>

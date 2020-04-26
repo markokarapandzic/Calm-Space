@@ -6,6 +6,7 @@ import * as Constants from '../../constants';
 import WelcomeScreen from '../screens/WelcomeScreen/WelcomeScreen';
 import SignInScreen from '../screens/SignInScreen/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
+import ForgotPasswordScreen from '../screens/ForgotPasswordScreen/ForgotPasswordScreen';
 
 const AuthNavigation = createStackNavigator(
   {
@@ -25,6 +26,12 @@ const AuthNavigation = createStackNavigator(
       screen: SignUpScreen,
       navigationOptions: {
         title: 'Register',
+      },
+    },
+    ForgotPassword: {
+      screen: ForgotPasswordScreen,
+      navigationOptions: {
+        title: null,
       },
     },
   },

@@ -23,6 +23,7 @@ export const SCREEN = {
   SIGNIN: 'SignIn',
   SIGNUP: 'SignUp',
   THEMES: 'Themes',
+  FORGOT_PASSWORD: 'ForgotPassword',
 };
 
 // Icon Types

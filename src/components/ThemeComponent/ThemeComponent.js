@@ -99,7 +99,7 @@ const ThemeComponent = ({ navigation, theme }) => {
           {buyButton}
         </View>
       </View>
-      <View style={styles.swipeIcon} data-test="view-swipe-icon">
+      {/* <View style={styles.swipeIcon} data-test="view-swipe-icon">
         <Icon
           name="arrows-h"
           type={Constants.ICON_TYPE.FONT_AWESOME}
@@ -114,7 +114,7 @@ const ThemeComponent = ({ navigation, theme }) => {
           size={40}
           data-test="icon-hand"
         />
-      </View>
+      </View> */}
     </ImageBackground>
   );
 };
