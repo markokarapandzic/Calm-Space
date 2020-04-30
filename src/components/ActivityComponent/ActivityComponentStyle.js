@@ -9,6 +9,7 @@ export default {
     paddingHorizontal: 20,
     borderRadius: 30,
     marginRight: 20,
+    minWidth: 300,
   },
   activityText: {
     flex: 1,

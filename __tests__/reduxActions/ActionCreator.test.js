@@ -6,6 +6,8 @@ import {
   startSleepActivity,
   stopSleepActivity,
   stopFocusActivity,
+  startMeditationActivity,
+  stopMeditationActivity,
 } from '../../src/store/actions/ActionCreator';
 import {
   START_LOADING,
@@ -14,6 +16,8 @@ import {
   START_SLEEP_ACTIVITY,
   STOP_FOCUS_ACTIVITY,
   STOP_SLEEP_ACTIVITY,
+  START_MEDITATION_ACTIVITY,
+  STOP_MEDITATION_ACTIVITY,
 } from '../../src/store/actions/ActionTypes';
 
 describe('Redux - Index Actions', () => {
@@ -57,5 +61,19 @@ describe('Redux - Index Actions', () => {
       type: STOP_SLEEP_ACTIVITY,
     };
     expect(stopSleepActivity()).toEqual(expectedAction);
+  });
+
+  test('should return startMeditationActivity action object', () => {
+    const expectedAction = {
+      type: START_MEDITATION_ACTIVITY,
+    };
+    expect(startMeditationActivity()).toEqual(expectedAction);
+  });
+
+  test('should return stopMeditationActivity action object', () => {
+    const expectedAction = {
+      type: STOP_MEDITATION_ACTIVITY,
+    };
+    expect(stopMeditationActivity()).toEqual(expectedAction);
   });
 });

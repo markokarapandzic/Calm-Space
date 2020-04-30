@@ -29,6 +29,7 @@ export const SCREEN = {
 export const ACTIVITY_ENUM = {
   FOCUS: 1,
   SLEEP: 2,
+  MEDITATION: 3,
 };
 
 // Icon Types

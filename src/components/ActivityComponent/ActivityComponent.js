@@ -7,13 +7,22 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { BlurView } from 'expo-blur';
 
-import { startFocusActivity, startSleepActivity } from '../../store/actions/ActionCreator';
+import {
+  startFocusActivity,
+  startSleepActivity,
+  startMeditationActivity,
+} from '../../store/actions/ActionCreator';
 import * as Constants from '../../../constants';
 import Styles from './ActivityComponentStyle';
 
 const styles = StyleSheet.create(Styles);
 
-const ActivityComponent = ({ activity, startFocusActivity, startSleepActivity }) => {
+const ActivityComponent = ({
+  activity,
+  startFocusActivity,
+  startSleepActivity,
+  startMeditationActivity,
+}) => {
   let startActivity = null;
   let title = 'Activity';
   let description = 'Increase Rest';
@@ -28,6 +37,11 @@ const ActivityComponent = ({ activity, startFocusActivity, startSleepActivity })
       startActivity = startSleepActivity;
       title = 'Sleep';
       description = 'Increase Rest';
+      break;
+    case Constants.ACTIVITY_ENUM.MEDITATION:
+      startActivity = startMeditationActivity;
+      title = 'Meditate';
+      description = 'Find Peace';
       break;
     default:
       break;
@@ -63,7 +77,10 @@ const ActivityComponent = ({ activity, startFocusActivity, startSleepActivity })
 ActivityComponent.propTypes = {
   startFocusActivity: PropTypes.func.isRequired,
   startSleepActivity: PropTypes.func.isRequired,
+  startMeditationActivity: PropTypes.func.isRequired,
   activity: PropTypes.oneOf([Constants.ACTIVITY_ENUM.FOCUS, Constants.ACTIVITY_ENUM.SLEEP]),
 };
 
-export default connect(null, { startFocusActivity, startSleepActivity })(ActivityComponent);
+export default connect(null, { startFocusActivity, startSleepActivity, startMeditationActivity })(
+  ActivityComponent
+);

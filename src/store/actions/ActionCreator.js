@@ -5,6 +5,8 @@ import {
   STOP_FOCUS_ACTIVITY,
   START_SLEEP_ACTIVITY,
   STOP_SLEEP_ACTIVITY,
+  START_MEDITATION_ACTIVITY,
+  STOP_MEDITATION_ACTIVITY,
 } from './ActionTypes';
 
 export const startLoading = () => {
@@ -40,5 +42,17 @@ export const startSleepActivity = () => {
 export const stopSleepActivity = () => {
   return {
     type: STOP_SLEEP_ACTIVITY,
+  };
+};
+
+export const startMeditationActivity = () => {
+  return {
+    type: START_MEDITATION_ACTIVITY,
+  };
+};
+
+export const stopMeditationActivity = () => {
+  return {
+    type: STOP_MEDITATION_ACTIVITY,
   };
 };

@@ -10,6 +10,7 @@ import ActivityComponent from '../../components/ActivityComponent/ActivityCompon
 import NavBar from '../../components/NavBar/NavBar';
 import SleepActivity from '../../components/Activities/SleepActivity/SleepActivity';
 import FocusActivity from '../../components/Activities/FocusAcitvity/FocusAcitvity';
+import MeditationActivity from '../../components/Activities/MeditationActivity/MeditationActivity';
 
 const styles = StyleSheet.create(Styles);
 
@@ -17,10 +18,11 @@ const mapStateToProps = state => {
   return {
     isFocusActivity: state.loadingReducer.focusActivityModal,
     isSleepActivity: state.loadingReducer.sleepActivityModal,
+    isMeditationActivity: state.loadingReducer.meditationActivityModal,
   };
 };
 
-const HomeScreen = ({ navigation, isFocusActivity, isSleepActivity }) => {
+const HomeScreen = ({ navigation, isFocusActivity, isSleepActivity, isMeditationActivity }) => {
   return (
     <View style={styles.backgroundContainer} data-test="screen-home">
       <ImageBackground
@@ -51,7 +53,10 @@ const HomeScreen = ({ navigation, isFocusActivity, isSleepActivity }) => {
                   activity={Constants.ACTIVITY_ENUM.SLEEP}
                   data-test="component-activity-2"
                 />
-                <ActivityComponent data-test="component-activity-3" />
+                <ActivityComponent
+                  activity={Constants.ACTIVITY_ENUM.MEDITATION}
+                  data-test="component-activity-3"
+                />
               </ScrollView>
             </View>
           </View>
@@ -83,6 +88,19 @@ const HomeScreen = ({ navigation, isFocusActivity, isSleepActivity }) => {
       >
         <SleepActivity />
       </Modal>
+      {/* Meditation Activity */}
+      <Modal
+        animationType="fade"
+        // eslint-disable-next-line react/jsx-boolean-value
+        visible={isMeditationActivity}
+        transparent
+        presentationStyle="overFullScreen"
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+        }}
+      >
+        <MeditationActivity />
+      </Modal>
     </View>
   );
 };
@@ -91,6 +109,7 @@ HomeScreen.propTypes = {
   navigation: PropTypes.object,
   isFocusActivity: PropTypes.bool,
   isSleepActivity: PropTypes.bool,
+  isMeditationActivity: PropTypes.bool,
 };
 
 export default connect(mapStateToProps)(HomeScreen);

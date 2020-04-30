@@ -30,8 +30,8 @@ describe('Sleep Activity Component', () => {
 
     test('should render Sleep Activity', () => {
       // const wrapper = setup(defaultState);
-      const cmpFocusAct = findByTestAttr(wrapper, 'component-sleep-activity');
-      expect(cmpFocusAct.length).toBe(1);
+      const cmpSleepAct = findByTestAttr(wrapper, 'component-sleep-activity');
+      expect(cmpSleepAct.length).toBe(1);
     });
 
     test('should render Header', () => {

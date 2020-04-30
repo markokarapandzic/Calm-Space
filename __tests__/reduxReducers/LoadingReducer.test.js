@@ -6,6 +6,8 @@ import {
   START_FOCUS_ACTIVITY,
   STOP_SLEEP_ACTIVITY,
   STOP_FOCUS_ACTIVITY,
+  STOP_MEDITATION_ACTIVITY,
+  START_MEDITATION_ACTIVITY,
 } from '../../src/store/actions/ActionTypes';
 import loadingReducer from '../../src/store/reducers/loadingReducer';
 
@@ -16,6 +18,7 @@ describe('Redux - Loading Reducer', () => {
       loading: false,
       focusActivityModal: false,
       sleepActivityModal: false,
+      meditationActivityModal: false,
     };
   });
 
@@ -54,6 +57,17 @@ describe('Redux - Loading Reducer', () => {
 
   test('should return state based on STOP_SLEEP_ACTIVITY action type', () => {
     const newState = loadingReducer(undefined, { type: STOP_SLEEP_ACTIVITY });
+    expect(newState).toEqual(fakeDefaultState);
+  });
+
+  test('should return state based on START_MEDITATION_ACTIVITY action type', () => {
+    const newState = loadingReducer(undefined, { type: START_MEDITATION_ACTIVITY });
+    fakeDefaultState.meditationActivityModal = true;
+    expect(newState).toEqual(fakeDefaultState);
+  });
+
+  test('should return state based on STOP_MEDITATION_ACTIVITY action type', () => {
+    const newState = loadingReducer(undefined, { type: STOP_MEDITATION_ACTIVITY });
     expect(newState).toEqual(fakeDefaultState);
   });
 });
