@@ -36,10 +36,10 @@ describe('Home Screen', () => {
       expect(bcgImage.length).toBe(1);
     });
 
-    test('should render NavBar', () => {
+    test('should render Header', () => {
       const wrapper = setup();
-      const navBar = findByTestAttr(wrapper, 'nav-bar');
-      expect(navBar.length).toBe(1);
+      const header = findByTestAttr(wrapper, 'header');
+      expect(header.length).toBe(1);
     });
 
     test('should render Bottom Content View', () => {

@@ -1,4 +1,3 @@
-import ExpoConstants from 'expo-constants';
 import * as Constants from '../../../constants';
 
 export default {
@@ -7,7 +6,6 @@ export default {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: ExpoConstants.statusBarHeight,
   },
   navBar: {
     flexDirection: 'row',
@@ -67,5 +65,9 @@ export default {
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
+  },
+  headerContainer: {
+    backgroundColor: 'transparent',
+    borderBottomColor: 'transparent',
   },
 };

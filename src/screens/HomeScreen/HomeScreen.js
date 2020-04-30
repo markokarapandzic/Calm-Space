@@ -1,13 +1,20 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground, ScrollView, Modal, Alert } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  ImageBackground,
+  ScrollView,
+  Modal,
+  Alert,
+  TouchableOpacity,
+} from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Text } from 'react-native-elements';
+import { Text, Header, Icon } from 'react-native-elements';
 
 import Styles from './HomeScreenStyle';
 import * as Constants from '../../../constants';
 import ActivityComponent from '../../components/ActivityComponent/ActivityComponent';
-import NavBar from '../../components/NavBar/NavBar';
 import SleepActivity from '../../components/Activities/SleepActivity/SleepActivity';
 import FocusActivity from '../../components/Activities/FocusAcitvity/FocusAcitvity';
 import MeditationActivity from '../../components/Activities/MeditationActivity/MeditationActivity';
@@ -31,7 +38,16 @@ const HomeScreen = ({ navigation, isFocusActivity, isSleepActivity, isMeditation
         data-test="background-image"
       >
         <View style={styles.container} data-test="view-main">
-          <NavBar navigation={navigation} data-test="nav-bar" />
+          <Header
+            centerComponent={<Text h4>Calm Space</Text>}
+            rightComponent={
+              <TouchableOpacity onPress={() => navigation.navigate(Constants.SCREEN.THEMES)}>
+                <Icon name="ios-leaf" type="ionicon" size={30} />
+              </TouchableOpacity>
+            }
+            containerStyle={styles.headerContainer}
+            data-test="header"
+          />
           <View style={styles.bottomContent} data-test="view-bottom-content">
             <Text style={styles.quote} data-test="text-quote">
               {Constants.QUOTE}

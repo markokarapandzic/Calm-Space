@@ -2,7 +2,7 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, ImageBackground } from 'react-native';
 import PropTypes from 'prop-types';
-import { Icon, Text } from 'react-native-elements';
+import { Icon, Text, Header } from 'react-native-elements';
 
 import * as Constants from '../../../constants';
 
@@ -74,19 +74,15 @@ const ThemeComponent = ({ navigation, theme }) => {
       data-test="component-theme"
     >
       <View style={styles.container} data-test="view-container">
-        <View style={styles.navBar} data-test="view-navbar">
-          <TouchableOpacity
-            onPress={() => navigation.navigate(Constants.SCREEN.HOME)}
-            data-test="button-navbar-back"
-          >
-            <Icon
-              name="chevron-left"
-              type={Constants.ICON_TYPE.EVILICON}
-              size={60}
-              data-test="button-navbar-back-content"
-            />
-          </TouchableOpacity>
-        </View>
+        <Header
+          leftComponent={
+            <TouchableOpacity onPress={() => navigation.navigate(Constants.SCREEN.HOME)}>
+              <Icon name="chevron-left" type={Constants.ICON_TYPE.EVILICON} size={60} />
+            </TouchableOpacity>
+          }
+          containerStyle={styles.headerContainer}
+          data-test="header"
+        />
         <View style={styles.bottomContent} data-test="view-bottom-content">
           <View style={styles.themeDescription} data-test="view-theme-info">
             <Text style={styles.themeName} data-test="text-title">

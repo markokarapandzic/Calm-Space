@@ -78,7 +78,11 @@ ActivityComponent.propTypes = {
   startFocusActivity: PropTypes.func.isRequired,
   startSleepActivity: PropTypes.func.isRequired,
   startMeditationActivity: PropTypes.func.isRequired,
-  activity: PropTypes.oneOf([Constants.ACTIVITY_ENUM.FOCUS, Constants.ACTIVITY_ENUM.SLEEP]),
+  activity: PropTypes.oneOf([
+    Constants.ACTIVITY_ENUM.FOCUS,
+    Constants.ACTIVITY_ENUM.SLEEP,
+    Constants.ACTIVITY_ENUM.MEDITATION,
+  ]),
 };
 
 export default connect(null, { startFocusActivity, startSleepActivity, startMeditationActivity })(

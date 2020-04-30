@@ -25,22 +25,10 @@ describe('Theme Component', () => {
       expect(viewContainer.length).toBe(1);
     });
 
-    test('should render NavBar View', () => {
+    test('should render Header', () => {
       const wrapper = setup();
-      const viewNavbar = findByTestAttr(wrapper, 'view-navbar');
-      expect(viewNavbar.length).toBe(1);
-    });
-
-    test('should render NavBar Back Button', () => {
-      const wrapper = setup();
-      const btnNavbarBack = findByTestAttr(wrapper, 'button-navbar-back');
-      expect(btnNavbarBack.length).toBe(1);
-    });
-
-    test('should render NavBar Back Button Content', () => {
-      const wrapper = setup();
-      const btnNavbarBackContent = findByTestAttr(wrapper, 'button-navbar-back-content');
-      expect(btnNavbarBackContent.length).toBe(1);
+      const header = findByTestAttr(wrapper, 'header');
+      expect(header.length).toBe(1);
     });
 
     test('should render Bottom Content View', () => {

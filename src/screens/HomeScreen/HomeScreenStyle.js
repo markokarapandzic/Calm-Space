@@ -1,5 +1,4 @@
 import { Platform } from 'react-native';
-import ExpoConstants from 'expo-constants';
 import * as Constants from '../../../constants';
 
 export default {
@@ -8,7 +7,6 @@ export default {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: ExpoConstants.statusBarHeight,
     marginBottom: 20,
   },
   backgroundContainer: {
@@ -42,4 +40,8 @@ export default {
     marginTop: 20,
     paddingLeft: 10,
   },
-}
+  headerContainer: {
+    backgroundColor: 'transparent',
+    borderBottomColor: 'transparent',
+  },
+};
