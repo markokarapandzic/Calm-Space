@@ -1,16 +1,25 @@
+/* eslint-disable no-shadow */
 /* eslint-disable indent */
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, ImageBackground } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, ImageBackground, Modal } from 'react-native';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Icon, Text, Header } from 'react-native-elements';
 
+import { startSoundsModal } from '../../store/actions/ActionCreator';
 import * as Constants from '../../../constants';
-
+import SoundsComponent from '../SoundsComponent/SoundsComponent';
 import Styles from './ThemeComponentStyle';
 
 const styles = StyleSheet.create(Styles);
 
-const ThemeComponent = ({ navigation, theme }) => {
+const mapStateToProps = state => {
+  return {
+    isSoundsModalActive: state.loadingReducer.soundsModal,
+  };
+};
+
+const ThemeComponent = ({ navigation, theme, startSoundsModal, isSoundsModalActive }) => {
   let backgroundImage = '';
   let themeTitle = '';
   let themeDescription = '';
@@ -80,6 +89,11 @@ const ThemeComponent = ({ navigation, theme }) => {
               <Icon name="chevron-left" type={Constants.ICON_TYPE.EVILICON} size={60} />
             </TouchableOpacity>
           }
+          rightComponent={
+            <TouchableOpacity onPress={() => startSoundsModal()}>
+              <Icon name="music" type={Constants.ICON_TYPE.FONT_AWESOME} size={30} />
+            </TouchableOpacity>
+          }
           containerStyle={styles.headerContainer}
           data-test="header"
         />
@@ -111,6 +125,17 @@ const ThemeComponent = ({ navigation, theme }) => {
           data-test="icon-hand"
         />
       </View> */}
+      <Modal
+        animationType="fade"
+        // eslint-disable-next-line react/jsx-boolean-value
+        visible={isSoundsModalActive}
+        presentationStyle="overFullScreen"
+        onRequestClose={() => {
+          // Alert.alert('Modal has been closed.');
+        }}
+      >
+        <SoundsComponent />
+      </Modal>
     </ImageBackground>
   );
 };
@@ -122,6 +147,8 @@ ThemeComponent.propTypes = {
     Constants.ThemesEnum.DESERT,
     Constants.ThemesEnum.SPACE,
   ]),
+  startSoundsModal: PropTypes.func,
+  isSoundsModalActive: PropTypes.bool,
 };
 
-export default ThemeComponent;
+export default connect(mapStateToProps, { startSoundsModal })(ThemeComponent);

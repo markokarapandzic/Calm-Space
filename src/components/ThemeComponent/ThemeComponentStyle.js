@@ -63,8 +63,8 @@ export default {
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'cover',
     justifyContent: 'center',
+    resizeMode: 'cover',
   },
   headerContainer: {
     backgroundColor: 'transparent',

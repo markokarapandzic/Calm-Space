@@ -11,6 +11,8 @@ import {
   STOP_SLEEP_ACTIVITY,
   START_MEDITATION_ACTIVITY,
   STOP_MEDITATION_ACTIVITY,
+  START_SOUNDS_MODAL,
+  STOP_SOUNDS_MODAL,
 } from '../actions/ActionTypes';
 
 const initialState = {
@@ -18,6 +20,7 @@ const initialState = {
   focusActivityModal: false,
   sleepActivityModal: false,
   meditationActivityModal: false,
+  soundsModal: false,
 };
 
 export default (state = initialState, action) =>
@@ -46,6 +49,12 @@ export default (state = initialState, action) =>
         break;
       case STOP_MEDITATION_ACTIVITY:
         draft.meditationActivityModal = false;
+        break;
+      case START_SOUNDS_MODAL:
+        draft.soundsModal = true;
+        break;
+      case STOP_SOUNDS_MODAL:
+        draft.soundsModal = false;
         break;
       default:
         break;

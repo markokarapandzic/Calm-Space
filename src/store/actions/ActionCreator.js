@@ -7,6 +7,8 @@ import {
   STOP_SLEEP_ACTIVITY,
   START_MEDITATION_ACTIVITY,
   STOP_MEDITATION_ACTIVITY,
+  START_SOUNDS_MODAL,
+  STOP_SOUNDS_MODAL,
 } from './ActionTypes';
 
 export const startLoading = () => {
@@ -54,5 +56,17 @@ export const startMeditationActivity = () => {
 export const stopMeditationActivity = () => {
   return {
     type: STOP_MEDITATION_ACTIVITY,
+  };
+};
+
+export const startSoundsModal = () => {
+  return {
+    type: START_SOUNDS_MODAL,
+  };
+};
+
+export const stopSoundsModal = () => {
+  return {
+    type: STOP_SOUNDS_MODAL,
   };
 };

@@ -1,4 +1,5 @@
-import { Dimensions } from 'react-native';
+/* eslint-disable prettier/prettier */
+import { Dimensions, Platform } from 'react-native';
 
 export const THEME = {
   colors: {
@@ -24,6 +25,7 @@ export const SCREEN = {
   SIGNUP: 'SignUp',
   THEMES: 'Themes',
   FORGOT_PASSWORD: 'ForgotPassword',
+  SOUNDS: 'Sounds',
 };
 
 export const ACTIVITY_ENUM = {
@@ -110,7 +112,7 @@ export const PLATFORM = {
 };
 
 // Styles
-export const CSS_SHADOW = {
+export const CSS_SHADOW = Platform.OS === PLATFORM.IOS ? {
   shadowColor: THEME.colors.black,
   shadowOffset: {
     width: 0,
@@ -118,5 +120,4 @@ export const CSS_SHADOW = {
   },
   shadowOpacity: 0.25,
   shadowRadius: 3.84,
-  elevation: 5,
-};
+} : { elevation: 5 };

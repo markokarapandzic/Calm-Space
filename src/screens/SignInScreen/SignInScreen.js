@@ -43,7 +43,7 @@ const SignInScreen = ({ navigation, loading, startLoading, stopLoading }) => {
       style={styles.container}
       data-test="screen-signin"
     >
-      <ScrollView style={{ width: '100%' }}>
+      <ScrollView style={{ width: '100%' }} showsVerticalScrollIndicator={false}>
         <View style={styles.socialButtons} data-test="view-social-button">
           <TouchableOpacity
             activeOpacity={Constants.DEFAULT_OPACITY_TOUCHABLE}

@@ -2,9 +2,9 @@ import * as Constants from '../../../constants';
 
 export default {
   container: {
+    alignItems: 'center',
     flex: 1,
     flexDirection: 'column',
-    alignItems: 'center',
     backgroundColor: Constants.THEME.colors.white,
     paddingHorizontal: Constants.BASE_PADDING * 2,
   },
