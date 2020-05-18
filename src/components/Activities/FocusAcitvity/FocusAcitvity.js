@@ -12,7 +12,7 @@ import Style from './FocusActivityStyle';
 
 const styles = StyleSheet.create(Style);
 
-const FocusActivity = ({ stopFocusActivity }) => {
+const FocusActivity = ({ navigation, stopFocusActivity }) => {
   return (
     <BlurView
       tint="dark"
@@ -37,7 +37,7 @@ const FocusActivity = ({ stopFocusActivity }) => {
           </Text>
         }
         rightComponent={
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate(Constants.SCREEN.SETTINGS)}>
             <Icon
               type={Constants.ICON_TYPE.OCTICON}
               name="settings"
@@ -90,6 +90,7 @@ const FocusActivity = ({ stopFocusActivity }) => {
 };
 
 FocusActivity.propTypes = {
+  navigation: PropTypes.object,
   stopFocusActivity: PropTypes.func,
 };
 

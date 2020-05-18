@@ -89,7 +89,7 @@ const HomeScreen = ({ navigation, isFocusActivity, isSleepActivity, isMeditation
           Alert.alert('Modal has been closed.');
         }}
       >
-        <FocusActivity />
+        <FocusActivity navigation={navigation} />
       </Modal>
       {/* Sleep Activity */}
       <Modal

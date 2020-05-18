@@ -3,6 +3,7 @@ import { Dimensions, Platform } from 'react-native';
 
 export const THEME = {
   colors: {
+    backgroundGrey: '#DCDCDC',
     lightgray: '#d3d3d3',
     darkgray: '#a9a9a9',
     gray: '#808080',
@@ -26,6 +27,8 @@ export const SCREEN = {
   THEMES: 'Themes',
   FORGOT_PASSWORD: 'ForgotPassword',
   SOUNDS: 'Sounds',
+  SETTINGS: 'Settings',
+  PRO: 'Pro',
 };
 
 export const ACTIVITY_ENUM = {
